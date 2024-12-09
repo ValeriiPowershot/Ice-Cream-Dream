@@ -1,5 +1,4 @@
-﻿using System.Net.Mime;
-using Services.Input;
+﻿using Services.Input;
 using UnityEngine;
 
 namespace Infrastructure
@@ -8,7 +7,10 @@ namespace Infrastructure
     {
         public static IInputService InputService;
 
-        public Game()
+        public Game() =>
+            RegisterInput();
+
+        private static void RegisterInput()
         {
             if (Application.isEditor) 
                 InputService = new StandaloneInputService();
